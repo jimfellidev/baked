@@ -85,6 +85,7 @@ export default {
   width: 100%;
   height: 100%;
   opacity: .7;
+  padding-bottom: 16px;
 }
 
 .home__content {

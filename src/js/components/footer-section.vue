@@ -3,7 +3,7 @@
         
 <footer class="footer">
     <ul class="footer__container">
-        <li class="footer__copyright footer__item"> &copy <a id="copyright"></a> Jim Felli
+        <li class="footer__copyright footer__item"> &copy; <a id="copyright"></a> Jim Felli
         </li>
         <div class="footer__image-wrap">
         <li class="footer__app-link footer__item do-nothing"><a href="#"><img class="ig-image" src="../../images/insta1.png"></a></li>

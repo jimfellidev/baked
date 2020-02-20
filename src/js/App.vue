@@ -30,18 +30,14 @@ import Dropbox from './components/dropbox.vue';
 
 
 
+
+
 export default {
   name: 'app',
   components: {
-    // HeaderSection,
-    // PageContainer,
     Navbar,
     FooterSection,
     Dropbox,
-    // Work,
-    // Home,
-    // About,
-    
 
 
   },

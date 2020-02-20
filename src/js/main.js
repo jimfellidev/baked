@@ -12,6 +12,7 @@ const routes = [
     { path: '/about', component: About, props: true, name: "About" },
 ];
 
+
 export default routes;
 
 Vue.use(VueRouter);

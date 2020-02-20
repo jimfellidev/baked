@@ -3,7 +3,10 @@
 <button id="dropbox" class="nav-icon" v-on:click="toggle" v-bind:class="{active: isActive}">
     <div></div>
 </button>
-    <div class="menu" v-show="isOpen" >
+    <div class="menu" 
+    v-show="isOpen" 
+    
+    >
         <ul id="myDropdown" class="dropdown">
             <li><router-link class="dropdown__item dropdown__item-1 home-link" :to="{ name: 'Home'}">Home</router-link></li>
             <li><router-link class="dropdown__item dropdown__item-1 work-link" :to="{ name: 'Work'}">My Work</router-link></li>
@@ -16,24 +19,44 @@
 
 <script>
 
+
+
+
 export default {
   name: 'Dropbox',
-    
-
-  
     data () {
     return {
         isOpen: false,
         show: false,
         isActive: false,
+        // handleFocusOut: false,
     }
   },
     methods: {
     toggle: function() {
       this.isOpen = !this.isOpen;
       this.isActive = !this.isActive;      
-    }
-  }
+      
+    },
+    // handleFocus() {
+      
+    // },
+    // handleFocusOut() {
+    //   this.handleFocusOut = !this.handleFocusOut;
+    //    if (this.isOpen) {
+    //         document.addEventListener('click', this.isOpen);
+    //    } else {
+    //         document.removeEventListener('click', this.isOpen);
+    //    }
+    // },
+    },
+    hide: function () { 
+    	console.log('hide')
+      this.isActive = false;
+      this.isOpen = false;
+    },
+     
+  },
 };
 
 
