@@ -5,7 +5,7 @@
 </button>
     <div class="menu" 
     v-show="isOpen" 
-    
+ 
     >
         <ul id="myDropdown" class="dropdown">
             <li><router-link class="dropdown__item dropdown__item-1 home-link" :to="{ name: 'Home'}">Home</router-link></li>
@@ -29,7 +29,7 @@ export default {
         isOpen: false,
         show: false,
         isActive: false,
-        // handleFocusOut: false,
+     
     }
   },
     methods: {
@@ -38,25 +38,27 @@ export default {
       this.isActive = !this.isActive;      
       
     },
-    // handleFocus() {
-      
+    // isOpen() {
+    //   if (this.isOpen) {
+    //     document.addEventListener('click', this.isOpen.);
+    //   }
     // },
     // handleFocusOut() {
-    //   this.handleFocusOut = !this.handleFocusOut;
-    //    if (this.isOpen) {
-    //         document.addEventListener('click', this.isOpen);
+    //   // this.handleFocusOut = !this.handleFocusOut;
+    //    if (this.handleFocusOut) {
+    //         document.addEventListener('click', this.handleFocusOut);
     //    } else {
-    //         document.removeEventListener('click', this.isOpen);
+    //         document.removeEventListener('click', !this.handleFocusOut);
     //    }
     // },
-    },
+  },
     hide: function () { 
     	console.log('hide')
       this.isActive = false;
       this.isOpen = false;
     },
      
-  },
+  
 };
 
 
