@@ -1,13 +1,13 @@
 <template>
-<div>    
+<div >    
 <button id="dropbox" class="nav-icon" v-on:click="toggle" v-bind:class="{active: isActive}">
     <div></div>
 </button>
-    <div class="menu" 
+    <div class="menu el" 
     v-show="isOpen" 
- 
+    
     >
-        <ul id="myDropdown" class="dropdown">
+        <ul id="myDropdown" class="dropdown __vueClickOutside__">
             <li><router-link class="dropdown__item dropdown__item-1 home-link" :to="{ name: 'Home'}">Home</router-link></li>
             <li><router-link class="dropdown__item dropdown__item-1 work-link" :to="{ name: 'Work'}">My Work</router-link></li>
             <li><router-link class="dropdown__item dropdown__item-1 home-link" :to="{ name: 'About'}">About</router-link></li>
@@ -22,41 +22,67 @@
 
 
 
+
+
+
+
+
+
+
+
+
 export default {
   name: 'Dropbox',
+
+
+  
     data () {
     return {
         isOpen: false,
         show: false,
         isActive: false,
+        // offclick: false,
      
     }
   },
+
+
+
+              //!!!!!!!!!!!!! Why won't this offclick work? !!!!!!!!!!!!!!!
+
+
+    bind: function (el, binding, vnode) {
+    el.clickOutsideEvent = function (event) {
+      // here I check that click was outside the el and his childrens
+      if (!(el == event.target || el.contains(event.target))) {
+        // and if it did, call method provided in attribute value
+        vnode.context[binding.expression](event);
+      }
+    };
+    document.body.addEventListener('click', el.clickOutsideEvent)
+  },
+  unbind: function (el) {
+    document.body.removeEventListener('click', el.clickOutsideEvent)
+  },
+
+
+
+
+
     methods: {
     toggle: function() {
       this.isOpen = !this.isOpen;
       this.isActive = !this.isActive;      
       
     },
-    // isOpen() {
-    //   if (this.isOpen) {
-    //     document.addEventListener('click', this.isOpen.);
-    //   }
-    // },
-    // handleFocusOut() {
-    //   // this.handleFocusOut = !this.handleFocusOut;
-    //    if (this.handleFocusOut) {
-    //         document.addEventListener('click', this.handleFocusOut);
-    //    } else {
-    //         document.removeEventListener('click', !this.handleFocusOut);
-    //    }
-    // },
+
   },
     hide: function () { 
     	console.log('hide')
       this.isActive = false;
       this.isOpen = false;
     },
+    
      
   
 };
@@ -67,6 +93,10 @@ export default {
 
 <style lang="scss" scoped>
 
+
+.offclick {
+  display: none;
+}
 
 
 .nav-icon {
