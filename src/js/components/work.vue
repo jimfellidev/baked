@@ -8,7 +8,7 @@
     </div>
     <div class="app__wrapper">
     <select class="app__select" v-on:change="filterList">
-        <option>Select a type of treat...</option>
+        <option value="">Select a type of treat...</option>
         <option v-for="item in uniqueItemsList">{{ item }}</option>
       </select>
       </div>
@@ -18,7 +18,7 @@
       <li 
       class="flashcard-list__li"
         v-for="card in cards"
-        v-show="type === card.type"       
+        v-show="type === '' || type === card.type"       
         v-on:click="toggleCard(card)"         
         >
         
