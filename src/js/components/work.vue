@@ -4,12 +4,14 @@
     <div class="a-head">
         <div class="a-head__layer">
         </div>
-        <h1 class="a-head__title">Heather's Work</h1>
+        <h1 class="a-head__title">Heather's </h1>
     </div>
     <div class="app__wrapper">
     <select class="app__select" v-on:change="filterList">
-        <option value="">Select a type of treat...</option>
-        <option v-for="item in uniqueItemsList">{{ item }}</option>
+        <option value="" >Select a type of treat...</option>
+        <option v-for="item in uniqueItemsList"
+        v-bind:key="item.type">
+          {{ item }}</option>
       </select>
       </div>
 
@@ -19,7 +21,8 @@
       class="flashcard-list__li"
         v-for="card in cards"
         v-show="type === '' || type === card.type"       
-        v-on:click="toggleCard(card)"         
+        v-on:click="toggleCard(card)" 
+        v-bind:key="card.type"        
         >
         
           <transition name="flip">
@@ -68,6 +71,7 @@ export default {
             flipped: false,
             type: 'Decorations',
             image: require('../../images/accessory-flowers.jpg'),
+            all: 'Select a type of treat...',
         },
         {
             front: 'Onesies and pins',
