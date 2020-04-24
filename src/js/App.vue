@@ -3,8 +3,9 @@
 <div id="app">
     <link href="https://fonts.googleapis.com/css?family=Playball&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Dosis|Gelasio|Roboto|Work+Sans&display=swap" rel="stylesheet">
-    <navbar></navbar>  
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
 
+    <navbar></navbar>  
     <!-- <header-section></header-section> -->
     <!-- <flashcard-app  class="flashcard "></flashcard-app> -->
     <router-view />
@@ -60,8 +61,11 @@ export default {
       }
     })
     .then(response => this.events = response.data.items)
-  }
+  },
 }
+
+
+
 
 
 

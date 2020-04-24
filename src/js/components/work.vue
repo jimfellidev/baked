@@ -4,13 +4,17 @@
     <div class="a-head">
         <div class="a-head__layer">
         </div>
-        <h1 class="a-head__title">Heather's </h1>
+        <h1 class="a-head__title">Heather's Work</h1>
     </div>
+    <div class="app-container">
     <div class="app__wrapper">
     <select class="app__select" v-on:change="filterList">
         <option value="" >Select a type of treat...</option>
-        <option v-for="item in uniqueItemsList"
-        v-bind:key="item.type">
+        <option 
+        v-for="item in uniqueItemsList"
+        v-bind:key="item.front"
+        >
+        <!-- recently added v-bind -->
           {{ item }}</option>
       </select>
       </div>
@@ -22,8 +26,9 @@
         v-for="card in cards"
         v-show="type === '' || type === card.type"       
         v-on:click="toggleCard(card)" 
-        v-bind:key="card.type"        
+        v-bind:key="card.front"
         >
+        <!-- recently added v-bind -->
         
           <transition name="flip">
               <div key="front" v-if="!card.flipped" class="card">
@@ -43,6 +48,7 @@
         </transition>
       </li>
     </ul>
+    </div>
   </div>
 </template>
 
@@ -336,8 +342,6 @@ export default {
 
 
 
-
-
 </script>
 
 
@@ -351,10 +355,17 @@ export default {
 
 <style lang="scss" scoped>
 
+
+.app-container {
+  max-width: 1650px;
+  margin: 0 auto;
+  background-color: #f9f1f1;
+
+}
+
+
 .app__wrapper {
-  margin-top: 30px;
-  max-width: 1365px;
-  margin: 30px auto 0px;
+  padding-top: 30px;
 
 }
 body {
@@ -395,7 +406,6 @@ body {
 }
 
 .app {
-  // max-width: 1365px;
   max-width:200000px;
   margin: 0 auto;
   padding-top: 0px;
@@ -482,12 +492,11 @@ body {
   color: #fff;
   font-weight: 600;
   font-size: 20px;
-  -webkit-box-shadow: 0px 0px 22px 8px rgba(209, 193, 209, 0.5);
-          box-shadow: 0px 0px 22px 8px rgba(209, 193, 209, 0.5);
-  will-change: transform;
   background-size: cover;
   color: black;
   border-top: solid 4px pink;
+  background-color: white;
+  
 }
 
 .card__front-content {
@@ -499,6 +508,10 @@ body {
 .card__back {
   border-top: solid 4px black;
   color: black;
+}
+
+.card__back:hover {
+  opacity: .8;
 }
 
 .card__back-content {
@@ -521,9 +534,13 @@ body {
   opacity: .9;
 }
 
+
+
 .flip-enter-active {
-  -webkit-transition: all 0.4s ease;
-  transition: all 0.4s ease;
+  transform-style: preserve-3d;
+  transition: 0.8s cubic-bezier(0.375, 0.885, 0.32, 1.275);
+  border-radius: 6px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
 }
 
 .flip-leave-active {

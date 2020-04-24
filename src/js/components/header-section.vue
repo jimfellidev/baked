@@ -25,6 +25,7 @@ export default {
   background-position: center;
   background-size: cover;
   position: relative;
+  max-width:100000000000px;
 }
 
 .a-head__title {

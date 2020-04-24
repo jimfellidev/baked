@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="about-us">
     <div class="a-head">
         <div class="a-head__layer">
         </div>
@@ -34,11 +34,6 @@ export default {
 
 
 
-.test {
-    padding-top: 200px;
-    padding-bottom: 200px;
-}
-
 .a-head {
   padding-top: 80px;
   height: 60vh;
@@ -49,6 +44,8 @@ export default {
   background-position: center;
   background-size: cover;
   position: relative;
+  border-bottom: solid 2px black;
+  
 }
 
 .a-head__title {
@@ -89,8 +86,8 @@ export default {
   position: relative;
   display: block;
   width: 100%;
-  border-top: solid 2px black;
-  max-width: 1365px;
+  margin: 0 auto;
+  max-width: 1650px;
   margin: 0 auto;
 }
 

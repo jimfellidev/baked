@@ -5,7 +5,6 @@
 </button>
     <div class="menu el" 
     v-show="isOpen" 
-    
     >
         <ul id="myDropdown" class="dropdown __vueClickOutside__">
             <li><router-link class="dropdown__item dropdown__item-1 home-link" :to="{ name: 'Home'}">Home</router-link></li>
@@ -19,52 +18,23 @@
 
 <script>
 
-
-
-
-
-
-
-
-
-
-
-
-
 export default {
   name: 'Dropbox',
 
-
-  
     data () {
     return {
         isOpen: false,
         show: false,
         isActive: false,
-        // offclick: false,
+        offclick: false,
      
     }
   },
 
 
 
-              //!!!!!!!!!!!!! Why won't this offclick work? !!!!!!!!!!!!!!!
 
 
-    bind: function (el, binding, vnode) {
-    el.clickOutsideEvent = function (event) {
-      // here I check that click was outside the el and his childrens
-      if (!(el == event.target || el.contains(event.target))) {
-        // and if it did, call method provided in attribute value
-        
-        vnode.context[binding.expression](event);
-      }
-    };
-    document.body.addEventListener('click', el.clickOutsideEvent)
-  },
-  unbind: function (el) {
-    document.body.removeEventListener('click', el.clickOutsideEvent)
-  },
 
 
 
@@ -72,20 +42,58 @@ export default {
 
     methods: {
     toggle: function() {
+      
       this.isOpen = !this.isOpen;
       this.isActive = !this.isActive;      
-      
+      console.log("toggle");
     },
+  
 
-  },
+
+
+              
+
+
+
     hide: function () { 
-    	console.log('hide')
+    	
       this.isActive = false;
       this.isOpen = false;
+      console.log('hide');
     },
-    
-     
+
+
+
+
+    }
+
+
+//!!!!!!!!!!!!! Why won't this offclick work? !!!!!!!!!!!!!!!
+    // offClick: function() {
+    //   //!!!  if you don't click in the dropbox code here
+    //   //!!!  close em all
+    //   this.isOpen = false;
+    //   this.isActive = false;
+    //   }
+    //   console.log('tests');
+    // },
+
+
+
   
+  //     bind: function (el, binding, vnode) {
+  //   el.clickOutsideEvent = function (event) {
+  //     // here I check that click was outside the el and his childrens
+  //     if (!(el == event.target || el.contains(event.target))) {
+  //       // and if it did, call method provided in attribute value
+        
+  //       vnode.context[binding.expression](event);
+  //     }
+  //   };
+  //   document.body.addEventListener('click', el.clickOutsideEvent)
+  // },  
+     
+    
 };
 
 
@@ -243,7 +251,10 @@ export default {
 }
 
 
-
+.router-link-exact-active {
+  font-weight: 800;
+  
+}
 
 
 

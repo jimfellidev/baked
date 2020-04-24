@@ -34,7 +34,7 @@ export default {
   overflow: hidden;
   position: fixed;
   width: 100%;
-  z-index: 20;
+  z-index: 5000000000000;
   height: 80px;
   background-color: white;
   -webkit-box-shadow: 0px 1px 19px rgba(0, 0, 0, 0.2);
@@ -232,4 +232,10 @@ export default {
   width: 80%;
   background: purple;
 }
+
+.router-link-exact-active {
+  font-weight: 800;
+  
+}
+
 </style>
