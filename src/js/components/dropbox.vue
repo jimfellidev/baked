@@ -1,19 +1,21 @@
 <template>
 <div >    
-<button id="dropbox" class="nav-icon" v-on:click="toggle" v-bind:class="{active: isActive}">
+<button id="dropbox" class="nav-icon" v-on:click="show = !show">
     <div></div>
 </button>
+<transition name="fade">
     <div class="menu el" 
-    v-show="isOpen" 
+    
+    v-if="show"
     >
         <ul id="myDropdown" class="dropdown __vueClickOutside__">
             <li><router-link class="dropdown__item dropdown__item-1 home-link" :to="{ name: 'Home'}">Home</router-link></li>
             <li><router-link class="dropdown__item dropdown__item-1 work-link" :to="{ name: 'Work'}">My Work</router-link></li>
             <li><router-link class="dropdown__item dropdown__item-1 home-link" :to="{ name: 'About'}">About</router-link></li>
         </ul>
-    </div> 
+    </div>
+    </transition> 
 </div>    
-
 </template>
 
 <script>
@@ -21,12 +23,14 @@
 export default {
   name: 'Dropbox',
 
+
+
     data () {
     return {
-        isOpen: false,
+        // isOpen: false,
         show: false,
-        isActive: false,
-        offclick: false,
+        // isActive: false,
+        // offclick: false,
      
     }
   },
@@ -40,13 +44,13 @@ export default {
 
 
 
-    methods: {
-    toggle: function() {
+    // methods: {
+    // toggle: function() {
       
-      this.isOpen = !this.isOpen;
-      this.isActive = !this.isActive;      
-      console.log("toggle");
-    },
+    //   this.isOpen = !this.isOpen;
+    //   this.isActive = !this.isActive;      
+    //   console.log("toggle");
+    // },
   
 
 
@@ -55,17 +59,17 @@ export default {
 
 
 
-    hide: function () { 
+    // hide: function () { 
     	
-      this.isActive = false;
-      this.isOpen = false;
-      console.log('hide');
-    },
+    //   this.isActive = false;
+    //   this.isOpen = false;
+    //   console.log('hide');
+    // },
 
 
 
 
-    }
+    // }
 
 
 //!!!!!!!!!!!!! Why won't this offclick work? !!!!!!!!!!!!!!!
@@ -101,7 +105,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 
 .offclick {
   display: none;

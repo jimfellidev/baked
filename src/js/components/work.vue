@@ -424,7 +424,7 @@ body {
   color: #444;
   line-height: 1.3;
   padding: .6em 1.4em .5em .8em;
-  width: 60%;
+  width: 70%;
   max-width: 300px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
