@@ -1,13 +1,16 @@
 <template>
 <div >    
-<button id="dropbox" class="nav-icon" v-on:click="show = !show">
+<button id="dropbox" class="nav-icon"  v-on:click="show = !show">
+    <!-- @click="handler('hamburger', 'dropbox')" -->
+    <!-- @click="show = !show" -->
     <div></div>
+    
 </button>
 <transition name="fade">
-    <div class="menu el" 
-    
-    v-if="show"
+    <div id="menu" class="menu el" 
+      v-if="show"
     >
+    <!-- v-if="show" this goes in above div -->
         <ul id="myDropdown" class="dropdown __vueClickOutside__">
             <li><router-link class="dropdown__item dropdown__item-1 home-link" :to="{ name: 'Home'}">Home</router-link></li>
             <li><router-link class="dropdown__item dropdown__item-1 work-link" :to="{ name: 'Work'}">My Work</router-link></li>
@@ -19,6 +22,8 @@
 </template>
 
 <script>
+
+
 
 export default {
   name: 'Dropbox',
@@ -34,6 +39,36 @@ export default {
      
     }
   },
+
+
+
+
+
+
+    // methods:{
+    //     method1:function(arg){
+    //         console.log('method1: ',arg);
+    //         var menu = document.getElementById('menu')
+    //         // Using an if statement to check the class
+    //         if (menu.classList.contains('menu-active')) {
+    //           // The box that we clicked has a class of bad so let's remove it and add the good class
+    //         menu.classList.remove('menu-active');
+    //         } else {
+    //           // The user obviously can't follow instructions so let's alert them of what is supposed to happen next
+    //           menu.classList.add('menu-active');
+    //         }
+    //     },
+    //     method2:function(arg){
+    //         console.log('method2: ',arg);
+    //         // make hamburger transform to X and back
+
+
+    //     },
+    //     handler:function(arg1,arg2){
+    //         this.method1(arg1);
+    //         this.method2(arg2);
+    //     }
+    // }
 
 
 
@@ -71,32 +106,6 @@ export default {
 
     // }
 
-
-//!!!!!!!!!!!!! Why won't this offclick work? !!!!!!!!!!!!!!!
-    // offClick: function() {
-    //   //!!!  if you don't click in the dropbox code here
-    //   //!!!  close em all
-    //   this.isOpen = false;
-    //   this.isActive = false;
-    //   }
-    //   console.log('tests');
-    // },
-
-
-
-  
-  //     bind: function (el, binding, vnode) {
-  //   el.clickOutsideEvent = function (event) {
-  //     // here I check that click was outside the el and his childrens
-  //     if (!(el == event.target || el.contains(event.target))) {
-  //       // and if it did, call method provided in attribute value
-        
-  //       vnode.context[binding.expression](event);
-  //     }
-  //   };
-  //   document.body.addEventListener('click', el.clickOutsideEvent)
-  // },  
-     
     
 };
 
@@ -105,11 +114,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
+}
+// .fade-enter-active, .fade-leave-active {
+//   transition: opacity .5s;
+  
+// }
+// .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+//   opacity: 0;
+// }
+
+
+
+
+.menu {
+  display: block;
+}
+
+.menu-hidden {
+  display: none;
 }
 
 .offclick {
