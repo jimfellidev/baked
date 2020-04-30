@@ -1,13 +1,13 @@
 <template>
-<div >    
-<button id="dropbox" class="nav-icon"  v-bind:class="[isActive ? '' : 'active']" v-on:click="toggleClass()">
+<div ref="container">    
+<button id="dropbox" class="nav-icon"  v-bind:class="[isActive ? '' : 'active']" v-on:click="toggleClass()" >
     <!-- @click="handler('hamburger', 'dropbox')" -->
     <!-- @click="show = !show" -->
     <div></div>
     
 </button>
 <transition name="fade">
-    <div id="menu" class="menu el" 
+    <div id="menu" class="menu el"
       v-if="!isActive"
     >
     <!-- v-if="show" this goes in above div -->
@@ -43,7 +43,22 @@ export default {
   methods: {
     toggleClass: function(event){
        this.isActive = !this.isActive;
-    }
+    },
+    documentClick(e){
+        let el = this.$refs.container
+        let target = e.target
+        if (el !== target && !el.contains(target)) {
+          this.isActive=true
+        }
+      }
+    },
+    created () {
+      document.addEventListener('click', this.documentClick)
+    },
+    destroyed () {
+    // important to clean up!!
+    document.removeEventListener('click', this.documentClick)
+  
   },
 
 
