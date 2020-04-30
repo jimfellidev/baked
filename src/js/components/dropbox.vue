@@ -1,6 +1,6 @@
 <template>
 <div >    
-<button id="dropbox" class="nav-icon"  v-on:click="show = !show">
+<button id="dropbox" class="nav-icon"  v-bind:class="[isActive ? '' : 'active']" v-on:click="toggleClass()">
     <!-- @click="handler('hamburger', 'dropbox')" -->
     <!-- @click="show = !show" -->
     <div></div>
@@ -8,7 +8,7 @@
 </button>
 <transition name="fade">
     <div id="menu" class="menu el" 
-      v-if="show"
+      v-if="!isActive"
     >
     <!-- v-if="show" this goes in above div -->
         <ul id="myDropdown" class="dropdown __vueClickOutside__">
@@ -25,6 +25,7 @@
 
 
 
+
 export default {
   name: 'Dropbox',
 
@@ -33,13 +34,17 @@ export default {
     data () {
     return {
         // isOpen: false,
-        show: false,
-        // isActive: false,
+        // show: false,
+        isActive: true,
         // offclick: false,
      
     }
   },
-
+  methods: {
+    toggleClass: function(event){
+       this.isActive = !this.isActive;
+    }
+  },
 
 
 
@@ -116,12 +121,28 @@ export default {
 <style lang="scss" scoped>
 
 
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+// .fade-enter-active, .fade-leave-active {
+//   transition: opacity .5s;
+// }
+// .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+//   opacity: 0;
+    
+// }
+
+.fade-enter-active {
+  transition: all .3s ease;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+
+.fade-leave-active {
+  transition: all .4s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+.fade-enter, .fade-leave-to {
+  transform: translateX(50px);
   opacity: 0;
 }
+
+
 // .fade-enter-active, .fade-leave-active {
 //   transition: opacity .5s;
   
@@ -199,16 +220,11 @@ export default {
   color: white;
   margin-left: 0;
   padding-left: 0;
-  z-index: 100000000;
   width: 140px;
   right: -5px;
   transition: 0.7s transform, 0.7s -webkit-transform;
   -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  // z-index: 10000;
-  // transform: translate3d(0, 0, 200px);
-  transform: translate3d(0,0,100px);
-  -webkit-transform: translate3d(0,0,0);
 }
 
 @media only screen and (min-width: 768px) {
