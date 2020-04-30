@@ -149,7 +149,7 @@ export default {
 }
 
 .fade-leave-active {
-  transition: all .4s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  transition: all .3s ease;
 }
 
 .fade-enter, .fade-leave-to {
@@ -238,7 +238,9 @@ export default {
   padding-left: 0;
   width: 140px;
   right: -5px;
+  margin-top: 16px;
   transition: 0.7s transform, 0.7s -webkit-transform;
+  border-top: .5px #d0d3d6 solid;
   -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
