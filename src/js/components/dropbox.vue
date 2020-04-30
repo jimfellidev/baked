@@ -135,6 +135,7 @@ export default {
 
 .menu {
   display: block;
+
 }
 
 .menu-hidden {
@@ -198,12 +199,16 @@ export default {
   color: white;
   margin-left: 0;
   padding-left: 0;
-  z-index: 10;
+  z-index: 100000000;
   width: 140px;
   right: -5px;
   transition: 0.7s transform, 0.7s -webkit-transform;
   -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  // z-index: 10000;
+  // transform: translate3d(0, 0, 200px);
+  transform: translate3d(0,0,100px);
+  -webkit-transform: translate3d(0,0,0);
 }
 
 @media only screen and (min-width: 768px) {
