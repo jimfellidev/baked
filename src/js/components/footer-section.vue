@@ -43,6 +43,8 @@ export default {
   list-style: none;
   margin-bottom: 0;
   padding-bottom: 11px;
+  margin-top: 0;
+  
 }
 
 .footer__copyright {

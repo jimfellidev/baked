@@ -229,6 +229,7 @@ export default {
 
 
 .dropdown {
+  
   list-style-type: none;
   position: fixed;
   top: 63.5px;

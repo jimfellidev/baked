@@ -356,6 +356,15 @@ export default {
 <style lang="scss" scoped>
 
 
+
+
+
+
+
+
+
+
+
 .app-container {
   max-width: 1650px;
   margin: 0 auto;
@@ -477,6 +486,8 @@ body {
 }
 
 .card {
+  transform:translate3d(0,0,10);
+  z-index: 1;
   display: block;
   height: 247px;
   width: 270px;
