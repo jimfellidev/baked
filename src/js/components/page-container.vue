@@ -1,11 +1,7 @@
 <template>
   <div class="bemname">
-      <!-- <flashcard-app></flashcard-app> -->
         <home></home>
         <about></about>
-    <!-- <div v-for="card in cards">      
-      <card :card="card"></card>
-    </div> -->
   </div>
 </template>
 

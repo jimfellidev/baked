@@ -1,39 +1,39 @@
 <template>
   <div class="about-us">
     <div class="a-head">
-        <div class="a-head__layer">
-        </div>
-        <h1 class="a-head__title">About Us</h1>
+      <div class="a-head__layer"></div>
+      <h1 class="a-head__title">About Us</h1>
     </div>
-             <div class="about">
-            <div class="about__me">
-                <h1 class="about__me-title">Who I am</h1 >
-                <p class="about__me-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-            <div class="about__passion">
-                <h1 class="about__pas-title" >Passion</h1 >
-                <p class="about__pas-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-            <div class="about__different">
-                <h1 class="about__dif-title">What Makes Me Different?</h1 >
-                <p class="about__dif-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-        </div>
-    
+    <div class="about">
+      <div class="about__me">
+        <h1 class="about__me-title">Who I am</h1>
+        <p
+          class="about__me-content"
+        >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+      <div class="about__passion">
+        <h1 class="about__pas-title">Passion</h1>
+        <p
+          class="about__pas-content"
+        >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+      <div class="about__different">
+        <h1 class="about__dif-title">What Makes Me Different?</h1>
+        <p
+          class="about__dif-content"
+        >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'About',
-  
+  name: "About"
 };
 </script>
 
 <style lang="scss" scoped>
-
-
-
 .a-head {
   padding-top: 80px;
   height: 60vh;
@@ -45,7 +45,6 @@ export default {
   background-size: cover;
   position: relative;
   border-bottom: solid 2px black;
-  
 }
 
 .a-head__title {
@@ -56,7 +55,7 @@ export default {
   font-weight: bolder;
   position: relative;
   width: 80%;
-  font-family: 'Playball', cursive;
+  font-family: "Playball", cursive;
 }
 
 @media only screen and (min-width: 422px) {
@@ -79,7 +78,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: .7;
+  opacity: 0.7;
 }
 
 .about {
@@ -106,7 +105,7 @@ export default {
 
 .about__me-content {
   text-align: left;
-  letter-spacing: .4px;
+  letter-spacing: 0.4px;
   font-size: 21px;
 }
 
@@ -135,7 +134,7 @@ export default {
 .about__pas-content {
   margin: 0 auto;
   text-align: left;
-  letter-spacing: .4px;
+  letter-spacing: 0.4px;
   font-size: 21px;
 }
 
@@ -163,7 +162,7 @@ export default {
 
 .about__dif-content {
   text-align: left;
-  letter-spacing: .4px;
+  letter-spacing: 0.4px;
   font-size: 21px;
 }
 
@@ -174,5 +173,4 @@ export default {
     font-size: 20px;
   }
 }
-
 </style>

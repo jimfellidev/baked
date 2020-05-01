@@ -1,347 +1,343 @@
 <template>
   <div id="flashcard-app" class="app">
-<!-- {{msg}} -->
     <div class="a-head">
-        <div class="a-head__layer">
-        </div>
-        <h1 class="a-head__title">Heather's Work</h1>
+      <div class="a-head__layer"></div>
+      <h1 class="a-head__title">Heather's Work</h1>
     </div>
     <div class="app-container">
-    <div class="app__wrapper">
-    <select class="app__select" v-on:change="filterList">
-        <option value="" >Select a type of treat...</option>
-        <option 
-        v-for="item in uniqueItemsList"
-        v-bind:key="item.front"
-        >
-        <!-- recently added v-bind -->
-          {{ item }}</option>
-      </select>
+      <div class="app__wrapper">
+        <select class="app__select" v-on:change="filterList">
+          <option value>Select a type of treat...</option>
+          <option v-for="item in uniqueItemsList" v-bind:key="item.front">
+            <!-- recently added v-bind -->
+            {{ item }}
+          </option>
+        </select>
       </div>
 
-
-    <ul class="flashcard-list">
-      <li 
-      class="flashcard-list__li"
-        v-for="card in cards"
-        v-show="type === '' || type === card.type"       
-        v-on:click="toggleCard(card)" 
-        v-bind:key="card.front"
+      <ul class="flashcard-list">
+        <li
+          class="flashcard-list__li"
+          v-for="card in cards"
+          v-show="type === '' || type === card.type"
+          v-on:click="toggleCard(card)"
+          v-bind:key="card.front"
         >
-        <!-- recently added v-bind -->
-        
-          <transition name="flip">
-              <div key="front" v-if="!card.flipped" class="card">
-                <p class="card__front-content">{{card.front}}</p>
-                
+          <!-- recently added v-bind -->
 
-                  <div v-if="!card.flipped" class="card-image" 
-                  v-bind:style="{ 'background-image': 'url(' + card.image + ')' }"
-                  v-bind:src="card.image" > 
-                  </div>
-              </div>
+          <transition name="flip">
+            <div key="front" v-if="!card.flipped" class="card">
+              <p class="card__front-content">{{card.front}}</p>
+
+              <div
+                v-if="!card.flipped"
+                class="card-image"
+                v-bind:style="{ 'background-image': 'url(' + card.image + ')' }"
+                v-bind:src="card.image"
+              ></div>
+            </div>
 
             <div v-else class="card card__back" key="back">
-              <p  class="card__back-content" > {{card.back}}</p>
+              <p class="card__back-content">{{card.back}}</p>
             </div>
-            
-        </transition>
-      </li>
-    </ul>
+          </transition>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script>
-
-
-function frontImage(){
-  
-  const cardImage = document.getElementsByClassName('card-image');
-    for (var i = 0; i < cardImage.length; i += 1) {
-      cardImage[i].style.backgroundImage = cards.image;
-    }
-return frontImage();
+function frontImage() {
+  const cardImage = document.getElementsByClassName("card-image");
+  for (var i = 0; i < cardImage.length; i += 1) {
+    cardImage[i].style.backgroundImage = cards.image;
+  }
+  return frontImage();
 }
 
 export default {
-  name: 'Work',
+  name: "Work",
   // el: '#flashcard-app',
-    props: ['msg'],
-    data () {
+  props: ["msg"],
+  data() {
     return {
       cards: [
         {
-            front: 'Flower Power',
-            back: 'Here is a collection of TINY flowers for later use on a baby shower cupcakes.  So cute!',
-            flipped: false,
-            type: 'Decorations',
-            image: require('../../images/accessory-flowers.jpg'),
-            all: 'Select a type of treat...',
+          front: "Flower Power",
+          back:
+            "Here is a collection of TINY flowers for later use on a baby shower cupcakes.  So cute!",
+          flipped: false,
+          type: "Decorations",
+          image: require("../../images/accessory-flowers.jpg"),
+          all: "Select a type of treat..."
         },
         {
-            front: 'Onesies and pins',
-            back: 'From pins to onesies, these are more decorations to later be used on a female babyshower cake',
-            flipped: false,
-            type: 'Decorations',
-            image: require('../../images/accessory-onesies.jpg'),
+          front: "Onesies and pins",
+          back:
+            "From pins to onesies, these are more decorations to later be used on a female babyshower cake",
+          flipped: false,
+          type: "Decorations",
+          image: require("../../images/accessory-onesies.jpg")
         },
         {
-            front: 'Snowman',
-            back: 'Uh oh, this poor fella may be melting!  Hopefully we get a chance to eat him first!',
-            flipped: false,
-            type: 'Decorations',
-            image: require('../../images/accessory-snowman.jpg'),
+          front: "Snowman",
+          back:
+            "Uh oh, this poor fella may be melting!  Hopefully we get a chance to eat him first!",
+          flipped: false,
+          type: "Decorations",
+          image: require("../../images/accessory-snowman.jpg")
         },
         {
-            front: 'Baby Carriage',
-            back: "I hope you got a gift receipt...  I don't think the baby is going to fit in that stroller...",
-            flipped: false,
-            type: 'Decorations',
-            image: require('../../images/accessory-stroller.jpg'),
+          front: "Baby Carriage",
+          back:
+            "I hope you got a gift receipt...  I don't think the baby is going to fit in that stroller...",
+          flipped: false,
+          type: "Decorations",
+          image: require("../../images/accessory-stroller.jpg")
         },
         {
-            front: 'Purple Rose',
-            back: 'These elegant purple and white roses may be just the decoration to put your wedding cake over the top!',
-            flipped: false,
-            type: 'Decorations',
-            image: require('../../images/accessory-weddingflowers.jpg'),
+          front: "Purple Rose",
+          back:
+            "These elegant purple and white roses may be just the decoration to put your wedding cake over the top!",
+          flipped: false,
+          type: "Decorations",
+          image: require("../../images/accessory-weddingflowers.jpg")
+        },
+
+        {
+          front: "Baby Shower Cupcakes",
+          back:
+            "It's hard for pictures to do any justice to how great these cupcakes came out!",
+          flipped: false,
+          type: "Cupcakes",
+          image: require("../../images/cupcake-flower.jpg")
+        },
+        {
+          front: "Chocolate",
+          back:
+            "CHOCOLATE!  What else can we say!?  These valentines cupcakes melted in the mouth!",
+          flipped: false,
+          type: "Cupcakes",
+          image: require("../../images/cupcake-choc.jpg")
         },
 
         {
-            front: 'Baby Shower Cupcakes',
-            back: "It's hard for pictures to do any justice to how great these cupcakes came out!",
-            flipped: false,
-            type: 'Cupcakes',
-            image: require('../../images/cupcake-flower.jpg'),
+          front: "Carmel Apple Delights",
+          back:
+            "If you've got a sweet tooth, nothing will hit the spot like these carmel apples!  They are everything you can imagine, with white chocolate on top!",
+          flipped: false,
+          type: "Treats",
+          image: require("../../images/treats-apple.jpg")
         },
         {
-            front: 'Chocolate',
-            back: 'CHOCOLATE!  What else can we say!?  These valentines cupcakes melted in the mouth!',
-            flipped: false,
-            type: 'Cupcakes',
-            image: require('../../images/cupcake-choc.jpg'),
-        },
-
-
-        {
-            front: 'Carmel Apple Delights',
-            back: "If you've got a sweet tooth, nothing will hit the spot like these carmel apples!  They are everything you can imagine, with white chocolate on top!",
-            flipped: false,
-            type: 'Treats',
-            image: require('../../images/treats-apple.jpg'),
+          front: "Ha, That Tickles",
+          back:
+            "This Elmo cake pop deserves a lot of credit.  He will surely be eaten in just a moment, and yet maintains a smile despite his impending doom.",
+          flipped: false,
+          type: "Treats",
+          image: require("../../images/treats-elmo.jpg")
         },
         {
-            front: 'Ha, That Tickles',
-            back: 'This Elmo cake pop deserves a lot of credit.  He will surely be eaten in just a moment, and yet maintains a smile despite his impending doom.',
-            flipped: false,
-            type: 'Treats',
-            image: require('../../images/treats-elmo.jpg'),
+          front: "Hansel and Gretel",
+          back:
+            "These delicious gingerbread houses would certainly be enough to lore me",
+          flipped: false,
+          type: "Treats",
+          image: require("../../images/treats-gingerbread.jpg")
         },
         {
-            front: 'Hansel and Gretel',
-            back: 'These delicious gingerbread houses would certainly be enough to lore me',
-            flipped: false,
-            type: 'Treats',
-            image: require('../../images/treats-gingerbread.jpg'),
+          front: "Winter Society",
+          back:
+            "Marshmellow snowmen and reindeer pops.  What can i say?  Now we are just showing off.",
+          flipped: false,
+          type: "Treats",
+          image: require("../../images/treats-holiday.jpg")
         },
         {
-            front: 'Winter Society',
-            back: 'Marshmellow snowmen and reindeer pops.  What can i say?  Now we are just showing off.',
-            flipped: false,
-            type: 'Treats',
-            image: require('../../images/treats-holiday.jpg'),
+          front: "Bagged Chocolate Pretzels",
+          back:
+            "Great for the on the go treat.  Just as good for the hungry front-end web developer sitting in the office",
+          flipped: false,
+          type: "Treats",
+          image: require("../../images/treats-pretzels.jpg")
         },
         {
-            front: 'Bagged Chocolate Pretzels',
-            back: "Great for the on the go treat.  Just as good for the hungry front-end web developer sitting in the office",
-            flipped: false,
-            type: 'Treats',
-            image: require('../../images/treats-pretzels.jpg'),
+          front: "Chocolate Covered Pretzels",
+          back:
+            "This display of Chocolate covered pretzels has chocolate drizzle on top to add to its style and taste!  wow, I love chocolate.",
+          flipped: false,
+          type: "Treats",
+          image: require("../../images/treats-pretzels2.jpg")
         },
         {
-            front: 'Chocolate Covered Pretzels',
-            back: 'This display of Chocolate covered pretzels has chocolate drizzle on top to add to its style and taste!  wow, I love chocolate.',
-            flipped: false,
-            type: 'Treats',
-            image: require('../../images/treats-pretzels2.jpg'),
+          front: "Snowman Zombies",
+          back: "CARRRRRL!!!!!!",
+          flipped: false,
+          type: "Treats",
+          image: require("../../images/treats-snowman.jpg")
         },
         {
-            front: 'Snowman Zombies',
-            back: 'CARRRRRL!!!!!!',
-            flipped: false,
-            type: 'Treats',
-            image: require('../../images/treats-snowman.jpg'),
-        },
-        {
-            front: 'Chocolate Covered Strawberries',
-            back: 'They look too nice to eat.  If you do eat them, you are essentially stealing art from future generations.  Shame on you for even thinking it.',
-            flipped: false,
-            type: 'Treats',
-            image: require('../../images/treats-strawberry.jpg'),
+          front: "Chocolate Covered Strawberries",
+          back:
+            "They look too nice to eat.  If you do eat them, you are essentially stealing art from future generations.  Shame on you for even thinking it.",
+          flipped: false,
+          type: "Treats",
+          image: require("../../images/treats-strawberry.jpg")
         },
 
-
         {
-            front: 'Angry Beavers',
-            back: 'Answer the phone, your childhood is calling',
-            flipped: false,
-            type: 'Cakes',
-            image: require('../../images/cake-angrybeavers.jpg'),
+          front: "Angry Beavers",
+          back: "Answer the phone, your childhood is calling",
+          flipped: false,
+          type: "Cakes",
+          image: require("../../images/cake-angrybeavers.jpg")
         },
         {
-            front: 'Football Mom',
-            back: "This is just your run of the mill chocolate, strawberry, football, mother's day cake",
-            flipped: false,
-            type: 'Cakes',
-            image: require('../../images/cake-anothamotha.jpg'),
+          front: "Football Mom",
+          back:
+            "This is just your run of the mill chocolate, strawberry, football, mother's day cake",
+          flipped: false,
+          type: "Cakes",
+          image: require("../../images/cake-anothamotha.jpg")
         },
         {
-            front: 'Under the Sea',
-            back: 'This under water themed ice-cream cake came out swimmingly.',
-            flipped: false,
-            type: 'Cakes',
-            image: require('../../images/cake-aqua.jpg'),
+          front: "Under the Sea",
+          back: "This under water themed ice-cream cake came out swimmingly.",
+          flipped: false,
+          type: "Cakes",
+          image: require("../../images/cake-aqua.jpg")
         },
         {
-            front: 'Baby on Board',
-            back: "This may be my personal favorite by our esteemed baker.  I saw the time and love she put into each decoration, and it was truly amazing.",
-            flipped: false,
-            type: 'Cakes',
-            image: require('../../images/baby-on-board.jpg'),
+          front: "Baby on Board",
+          back:
+            "This may be my personal favorite by our esteemed baker.  I saw the time and love she put into each decoration, and it was truly amazing.",
+          flipped: false,
+          type: "Cakes",
+          image: require("../../images/baby-on-board.jpg")
         },
         {
-            front: 'Happy B-day Jac!',
-            back: 'Happy birthday Jacligza!  Ah, to be 22 again...',
-            flipped: false,
-            type: 'Cakes',
-            image: require('../../images/cake-bdayjac.jpg'),
+          front: "Happy B-day Jac!",
+          back: "Happy birthday Jacligza!  Ah, to be 22 again...",
+          flipped: false,
+          type: "Cakes",
+          image: require("../../images/cake-bdayjac.jpg")
         },
         {
-            front: "Happy B-day Dad!",
-            back: "I think we'd all agree that a father is the single most important living being in the history of humanity.  *cough cough* I hope you're reading this son",
-            flipped: false,
-            type: 'Cakes',
-            image: require('../../images/cake-birthday.jpg'),
+          front: "Happy B-day Dad!",
+          back:
+            "I think we'd all agree that a father is the single most important living being in the history of humanity.  *cough cough* I hope you're reading this son",
+          flipped: false,
+          type: "Cakes",
+          image: require("../../images/cake-birthday.jpg")
         },
         {
-            front: 'Patrick Shwasted',
-            back:"You take the cake, I'll handle the rest.",
-            flipped: false,
-            type: 'Cakes',
-            image: require('../../images/cake-booze.jpg'),
+          front: "Patrick Shwasted",
+          back: "You take the cake, I'll handle the rest.",
+          flipped: false,
+          type: "Cakes",
+          image: require("../../images/cake-booze.jpg")
         },
         {
-            front: 'Communion Cake',
-            back: 'What a way to celebrate a special day!',
-            flipped: false,
-            type: 'Cakes',
-            image: require('../../images/cake-communion.jpg'),
+          front: "Communion Cake",
+          back: "What a way to celebrate a special day!",
+          flipped: false,
+          type: "Cakes",
+          image: require("../../images/cake-communion.jpg")
         },
         {
-            front: 'Congratulations Cake',
-            back: "What a charming graduation cake!  This is what we in the biz' refer to as a twofer",
-            flipped: false,
-            type: 'Cakes',
-            image: require('../../images/cake-congrats.jpg'),
+          front: "Congratulations Cake",
+          back:
+            "What a charming graduation cake!  This is what we in the biz' refer to as a twofer",
+          flipped: false,
+          type: "Cakes",
+          image: require("../../images/cake-congrats.jpg")
         },
         {
-            front: 'We Miss You',
-            back: ':(',
-            flipped: false,
-            type: 'Cakes',
-            image: require('../../images/cake-doggycake.jpg'),
+          front: "We Miss You",
+          back: ":(",
+          flipped: false,
+          type: "Cakes",
+          image: require("../../images/cake-doggycake.jpg")
         },
         {
-            front: 'That Tickles',
-            back: "If you saw this cake when she was done with it, you'd be asking who the real monster was...  You deserved better icing Elmo...",
-            flipped: false,
-            type: 'Cakes',
-            image: require('../../images/cake-elmo.jpg'),
+          front: "That Tickles",
+          back:
+            "If you saw this cake when she was done with it, you'd be asking who the real monster was...  You deserved better icing Elmo...",
+          flipped: false,
+          type: "Cakes",
+          image: require("../../images/cake-elmo.jpg")
         },
         {
-            front: "Spring Time Mother's Day",
-            back: "Look at those cute little lady bugs!  This cake just makes you feel the spring breeze!",
-            flipped: false,
-            type: 'Cakes',
-            image: require('../../images/cake-mothers.jpg'),
+          front: "Spring Time Mother's Day",
+          back:
+            "Look at those cute little lady bugs!  This cake just makes you feel the spring breeze!",
+          flipped: false,
+          type: "Cakes",
+          image: require("../../images/cake-mothers.jpg")
         },
         {
-            front: 'Chocolate Rain',
-            back: 'Some grow strong, and others feel the pain.  Lucky for us, this chocolate raindrop icing cake most certainly grew strong!',
-            flipped: false,
-            type: 'Cakes',
-            image: require('../../images/cake-raindrop.jpg'),
+          front: "Chocolate Rain",
+          back:
+            "Some grow strong, and others feel the pain.  Lucky for us, this chocolate raindrop icing cake most certainly grew strong!",
+          flipped: false,
+          type: "Cakes",
+          image: require("../../images/cake-raindrop.jpg")
         },
         {
-            front: 'Reptar',
-            back: 'Reptar, Reptar, gotta find that Reptar!',
-            flipped: false,
-            type: 'Cakes',
-            image: require('../../images/cake-rugrat.jpg'),
+          front: "Reptar",
+          back: "Reptar, Reptar, gotta find that Reptar!",
+          flipped: false,
+          type: "Cakes",
+          image: require("../../images/cake-rugrat.jpg")
         },
         {
-            front: 'Pretty Pretty',
-            back: 'A very pretty formal styled cake!',
-            flipped: false,
-            type: 'Cakes',
-            image: require('../../images/cake-seanmichelle.jpg'),
+          front: "Pretty Pretty",
+          back: "A very pretty formal styled cake!",
+          flipped: false,
+          type: "Cakes",
+          image: require("../../images/cake-seanmichelle.jpg")
         },
         {
-            front: 'Drizzle',
-            back: 'A carmel drizzle over white icing gives a beautiful look on these ice-cream cakes!',
-            flipped: false,
-            type: 'Cakes',
-            image: require('../../images/cake-squiggly.jpg'),
+          front: "Drizzle",
+          back:
+            "A carmel drizzle over white icing gives a beautiful look on these ice-cream cakes!",
+          flipped: false,
+          type: "Cakes",
+          image: require("../../images/cake-squiggly.jpg")
         },
         {
-            front: 'Wedding Cake',
-            back: "Started makin' cupcakes now we here.",
-            flipped: false,
-            type: 'Cakes',
-            image: require('../../images/cake-weddingcake.jpg'),
+          front: "Wedding Cake",
+          back: "Started makin' cupcakes now we here.",
+          flipped: false,
+          type: "Cakes",
+          image: require("../../images/cake-weddingcake.jpg")
         }
-        ],
-        type: '',
+      ],
+      type: ""
+    };
+  },
+  methods: {
+    filterList: function() {
+      this.type = event.target.value;
+      console.log(this.type);
+    },
+    toggleCard: function(card) {
+      card.flipped = !card.flipped;
     }
   },
-      methods: {
-        filterList: function(){
-            this.type = event.target.value;
-            console.log(this.type);
-        },
-        toggleCard: function(card) {
-            card.flipped = !card.flipped;
+  computed: {
+    uniqueItemsList: function() {
+      const types = [];
+      this.cards.forEach(item => {
+        if (!types.includes(item.type)) {
+          types.push(item.type);
         }
-    },
-    computed: {
-        uniqueItemsList: function(){
-          const types = [];
-          this.cards.forEach((item)=>{
-            if(!types.includes(item.type)){
-              types.push(item.type);
-            }
-          });
-          return types;
-        }
-      }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      });
+      return types;
+    }
+  }
+};
 </script>
 
 
@@ -354,31 +350,17 @@ export default {
 
 
 <style lang="scss" scoped>
-
-
-
-
-
-
-
-
-
-
-
 .app-container {
   max-width: 1650px;
   margin: 0 auto;
   background-color: #f9f1f1;
-
 }
-
 
 .app__wrapper {
   padding-top: 30px;
-
 }
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   text-align: center;
   margin: 0;
 }
@@ -390,8 +372,8 @@ body {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
   padding-top: 20px;
   margin: 0 auto;
   list-style-type: none;
@@ -415,7 +397,7 @@ body {
 }
 
 .app {
-  max-width:200000px;
+  max-width: 200000px;
   margin: 0 auto;
   padding-top: 0px;
 }
@@ -432,25 +414,27 @@ body {
   font-weight: 700;
   color: #444;
   line-height: 1.3;
-  padding: .6em 1.4em .5em .8em;
+  padding: 0.6em 1.4em 0.5em 0.8em;
   width: 70%;
   max-width: 300px;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0;
   border: 1px solid #aaa;
   -webkit-box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
-          box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
-  border-radius: .5em;
+  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+  border-radius: 0.5em;
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
   background-color: #fff;
-  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"), -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#e5e5e5));
-  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"), linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"),
+    -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#e5e5e5));
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"),
+    linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
   background-repeat: no-repeat, repeat;
-  background-position: right .7em top 50%, 0 0;
-  background-size: .65em auto, 100%;
+  background-position: right 0.7em top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
   margin: 0 auto;
 }
 
@@ -465,7 +449,7 @@ body {
 .app__select:focus {
   border-color: #aaa;
   -webkit-box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
-          box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
+  box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
   box-shadow: 0 0 0 3px -moz-mac-focusring;
   color: #222;
   outline: none;
@@ -475,18 +459,22 @@ body {
   font-weight: normal;
 }
 
-.app__select:disabled, .app__select .app__select [aria-disabled=true] {
+.app__select:disabled,
+.app__select .app__select [aria-disabled="true"] {
   color: graytext;
-  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22graytext%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"), -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#e5e5e5));
-  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22graytext%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"), linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22graytext%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"),
+    -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#e5e5e5));
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22graytext%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"),
+    linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
 }
 
-.app__select:disabled:hover, .app__select .app__select [aria-disabled=true] {
+.app__select:disabled:hover,
+.app__select .app__select [aria-disabled="true"] {
   border-color: #aaa;
 }
 
 .card {
-  transform:translate3d(0,0,10);
+  transform: translate3d(0, 0, 10);
   z-index: 1;
   display: block;
   height: 247px;
@@ -507,11 +495,10 @@ body {
   color: black;
   border-top: solid 4px pink;
   background-color: white;
-  
 }
 
 .card__front-content {
-  font-family: 'Dancing Script', cursive;
+  font-family: "Dancing Script", cursive;
   margin-top: -18px;
   margin-bottom: 10px;
 }
@@ -522,13 +509,13 @@ body {
 }
 
 .card__back:hover {
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .card__back-content {
   margin: 0 auto;
   padding-top: 60px;
-  font-family: 'Gelasio', serif;
+  font-family: "Gelasio", serif;
 }
 
 .card-image {
@@ -542,25 +529,24 @@ body {
 }
 
 .card-image:hover {
-  opacity: .9;
+  opacity: 0.9;
 }
-
-
 
 .flip-enter-active {
   transform-style: preserve-3d;
   transition: 0.8s cubic-bezier(0.375, 0.885, 0.32, 1.275);
   border-radius: 6px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 .flip-leave-active {
   display: none;
 }
 
-.flip-enter, .flip-leave {
+.flip-enter,
+.flip-leave {
   -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
+  transform: rotateY(180deg);
   opacity: 0;
 }
 
@@ -603,9 +589,11 @@ button {
   font-weight: 600;
 }
 
-*[dir="rtl"] .app__select, :root:lang(ar) .app__select, :root:lang(iw) .app__select {
-  background-position: left .7em top 50%, 0 0;
-  padding: .6em .8em .5em 1.4em;
+*[dir="rtl"] .app__select,
+:root:lang(ar) .app__select,
+:root:lang(iw) .app__select {
+  background-position: left 0.7em top 50%, 0 0;
+  padding: 0.6em 0.8em 0.5em 1.4em;
 }
 
 .a-head {
@@ -628,7 +616,7 @@ button {
   font-weight: bolder;
   position: relative;
   width: 80%;
-  font-family: 'Playball', cursive;
+  font-family: "Playball", cursive;
 }
 
 @media only screen and (min-width: 422px) {
@@ -651,7 +639,6 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: .7;
+  opacity: 0.7;
 }
-
 </style>

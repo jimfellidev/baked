@@ -1,25 +1,35 @@
 <template>
-
-        
-<footer class="footer">
+  <footer class="footer">
     <ul class="footer__container">
-        <li class="footer__copyright footer__item"> &copy; <a id="copyright"></a> Jim Felli
+      <li class="footer__copyright footer__item">
+        &copy;
+        <a id="copyright"></a> Jim Felli
+      </li>
+      <div class="footer__image-wrap">
+        <li class="footer__app-link footer__item do-nothing">
+          <a href="#">
+            <img class="ig-image" src="../../images/insta1.png" />
+          </a>
         </li>
-        <div class="footer__image-wrap">
-        <li class="footer__app-link footer__item do-nothing"><a href="#"><img class="ig-image" src="../../images/insta1.png"></a></li>
-        <li class="footer__app-link footer__item do-nothing"><a href="#"><img class="twitter-image" src="../../images/twitter.png"></a></li>
-        <li class="footer__app-link footer__item do-nothing"><a href="#"><img class="fb-image" src="../../images/fb.png"></a></li>
-    </div>
+        <li class="footer__app-link footer__item do-nothing">
+          <a href="#">
+            <img class="twitter-image" src="../../images/twitter.png" />
+          </a>
+        </li>
+        <li class="footer__app-link footer__item do-nothing">
+          <a href="#">
+            <img class="fb-image" src="../../images/fb.png" />
+          </a>
+        </li>
+      </div>
     </ul>
-</footer>
-
+  </footer>
 </template>
 
 <script>
-
 export default {
-  name: 'FooterSection',  
-}
+  name: "FooterSection"
+};
 </script>
 
 <style lang="scss" scoped>
@@ -27,7 +37,7 @@ export default {
   display: block;
   position: relative;
   -webkit-box-shadow: 0px -2px 2px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px -2px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px -2px 2px rgba(0, 0, 0, 0.2);
 }
 
 .footer__container {
@@ -38,13 +48,12 @@ export default {
   display: flex;
   width: 100%;
   -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
   list-style: none;
   margin-bottom: 0;
   padding-bottom: 11px;
   margin-top: 0;
-  
 }
 
 .footer__copyright {
@@ -62,8 +71,8 @@ export default {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
   width: 50%;
 }
 

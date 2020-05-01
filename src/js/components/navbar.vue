@@ -1,24 +1,19 @@
 <template>
-    <div class="topnav" id="myTopnav">
-      <div class="topnav__width-wrap">
-       <router-link class="topnav__icon" :to="{ name: 'Home'}">Heathers</router-link>
-        
-        <div class="topnav__link-wrap">
+  <div class="topnav" id="myTopnav">
+    <div class="topnav__width-wrap">
+      <router-link class="topnav__icon" :to="{ name: 'Home'}">Heathers</router-link>
+      <div class="topnav__link-wrap">
         <router-link :to="{ name: 'Home'}">Home</router-link>
         <router-link :to="{ name: 'Work'}">Work</router-link>
         <router-link :to="{ name: 'About'}">About</router-link>
-
-
-        </div>
       </div>
-      <dropbox></dropbox>
     </div>
-  
+    <dropbox></dropbox>
+  </div>
 </template>
 
 <script>
-
-import Dropbox from './dropbox.vue';
+import Dropbox from "./dropbox.vue";
 
 export default {
   name: "Navbar",
@@ -26,12 +21,11 @@ export default {
     Dropbox
   }
 };
-
 </script>
 
 <style lang="scss" scoped>
 .topnav {
-  // overflow: auto;
+  // overflow: hidden;
   transform: translateZ(1000000px);
   z-index: 20;
   position: fixed;
@@ -237,7 +231,5 @@ export default {
 
 .router-link-exact-active {
   font-weight: 800;
-  
 }
-
 </style>

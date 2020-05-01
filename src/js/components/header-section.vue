@@ -1,17 +1,14 @@
 <template>
   <div class="a-head">
-    <div class="a-head__layer">
-    </div>
+    <div class="a-head__layer"></div>
     <h1 class="a-head__title">Heather's Work</h1>
   </div>
-
 </template>
 
 <script>
-
 export default {
-  name: 'HeaderSection',  
-}
+  name: "HeaderSection"
+};
 </script>
 
 <style lang="scss" scoped>
@@ -25,7 +22,7 @@ export default {
   background-position: center;
   background-size: cover;
   position: relative;
-  max-width:100000000000px;
+  max-width: 100000000000px;
 }
 
 .a-head__title {
@@ -36,7 +33,7 @@ export default {
   font-weight: bolder;
   position: relative;
   width: 80%;
-  font-family: 'Playball', cursive;
+  font-family: "Playball", cursive;
 }
 
 @media only screen and (min-width: 422px) {
@@ -59,6 +56,6 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: .7;
+  opacity: 0.7;
 }
 </style>
