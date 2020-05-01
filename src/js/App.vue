@@ -1,15 +1,19 @@
 
 <template>
-<div id="app">
-    <link href="https://fonts.googleapis.com/css?family=Playball&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Dosis|Gelasio|Roboto|Work+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+  <div id="app">
+    <link href="https://fonts.googleapis.com/css?family=Playball&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Dancing+Script|Dosis|Gelasio|Roboto|Work+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap"
+      rel="stylesheet"
+    />
 
-    <navbar></navbar>  
-    <!-- <header-section></header-section> -->
-    <!-- <flashcard-app  class="flashcard "></flashcard-app> -->
+    <navbar></navbar>
     <router-view />
-    
+
     <footer-section></footer-section>
   </div>
 </template>
@@ -19,61 +23,47 @@
 
 
 <script>
-import axios from 'axios'
-// import HeaderSection from './components/header-section.vue';
-// import PageContainer from './components/page-container.vue';
-import Navbar from './components/navbar.vue';
-import FooterSection from './components/footer-section.vue';
-import Dropbox from './components/dropbox.vue';
-// import Work from './components/work.vue';
-// import Home from './components/home.vue';
-// import About from './components/about.vue';
-
-
-
-
+import axios from "axios";
+import Navbar from "./components/navbar.vue";
+import FooterSection from "./components/footer-section.vue";
+import Dropbox from "./components/dropbox.vue";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
     Navbar,
     FooterSection,
-    Dropbox,
-
-
+    Dropbox
   },
-  data () {
+  data() {
     return {
-      url: 'https://api.github.com/search/repositories',
-      events: [],
-      
-    }
+      url: "https://api.github.com/search/repositories",
+      events: []
+    };
   },
-      mounted() {
-      let vueRouter = document.createElement('script')
-      vueRouter.setAttribute('src', 'https://unpkg.com/vue-router/dist/vue-router.js')
-      document.head.appendChild(vueRouter)
-    },
+  mounted() {
+    let vueRouter = document.createElement("script");
+    vueRouter.setAttribute(
+      "src",
+      "https://unpkg.com/vue-router/dist/vue-router.js"
+    );
+    document.head.appendChild(vueRouter);
+  },
   created() {
-    axios.get(this.url, {
-      params: {
-        q: 'vuejs'
-      }
-    })
-    .then(response => this.events = response.data.items)
-  },
-}
-
-
-
-
-
-
+    axios
+      .get(this.url, {
+        params: {
+          q: "vuejs"
+        }
+      })
+      .then(response => (this.events = response.data.items));
+  }
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -82,7 +72,7 @@ export default {
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   text-align: center;
   margin: 0;
 }
@@ -94,8 +84,8 @@ body {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
   padding-top: 20px;
   margin: 0 auto;
   list-style-type: none;
@@ -136,25 +126,27 @@ body {
   font-weight: 700;
   color: #444;
   line-height: 1.3;
-  padding: .6em 1.4em .5em .8em;
+  padding: 0.6em 1.4em 0.5em 0.8em;
   width: 60%;
   max-width: 300px;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0;
   border: 1px solid #aaa;
   -webkit-box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
-          box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
-  border-radius: .5em;
+  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+  border-radius: 0.5em;
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
   background-color: #fff;
-  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"), -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#e5e5e5));
-  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"), linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"),
+    -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#e5e5e5));
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"),
+    linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
   background-repeat: no-repeat, repeat;
-  background-position: right .7em top 50%, 0 0;
-  background-size: .65em auto, 100%;
+  background-position: right 0.7em top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
   margin: 0 auto;
 }
 
@@ -169,7 +161,7 @@ body {
 .app__select:focus {
   border-color: #aaa;
   -webkit-box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
-          box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
+  box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
   box-shadow: 0 0 0 3px -moz-mac-focusring;
   color: #222;
   outline: none;
@@ -179,13 +171,17 @@ body {
   font-weight: normal;
 }
 
-.app__select:disabled, .app__select .app__select [aria-disabled=true] {
+.app__select:disabled,
+.app__select .app__select [aria-disabled="true"] {
   color: graytext;
-  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22graytext%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"), -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#e5e5e5));
-  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22graytext%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"), linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22graytext%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"),
+    -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#e5e5e5));
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22graytext%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"),
+    linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
 }
 
-.app__select:disabled:hover, .app__select .app__select [aria-disabled=true] {
+.app__select:disabled:hover,
+.app__select .app__select [aria-disabled="true"] {
   border-color: #aaa;
 }
 
@@ -206,7 +202,7 @@ body {
   font-weight: 600;
   font-size: 20px;
   -webkit-box-shadow: 0px 0px 22px 8px rgba(209, 193, 209, 0.5);
-          box-shadow: 0px 0px 22px 8px rgba(209, 193, 209, 0.5);
+  box-shadow: 0px 0px 22px 8px rgba(209, 193, 209, 0.5);
   will-change: transform;
   background-size: cover;
   color: black;
@@ -214,7 +210,7 @@ body {
 }
 
 .card__front-content {
-  font-family: 'Dancing Script', cursive;
+  font-family: "Dancing Script", cursive;
   margin-top: -18px;
   margin-bottom: 10px;
 }
@@ -227,7 +223,7 @@ body {
 .card__back-content {
   margin: 0 auto;
   padding-top: 60px;
-  font-family: 'Gelasio', serif;
+  font-family: "Gelasio", serif;
 }
 
 .card-image {
@@ -241,7 +237,7 @@ body {
 }
 
 .card-image:hover {
-  opacity: .9;
+  opacity: 0.9;
 }
 
 .flip-enter-active {
@@ -253,9 +249,10 @@ body {
   display: none;
 }
 
-.flip-enter, .flip-leave {
+.flip-enter,
+.flip-leave {
   -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
+  transform: rotateY(180deg);
   opacity: 0;
 }
 
@@ -298,14 +295,10 @@ button {
   font-weight: 600;
 }
 
-*[dir="rtl"] .app__select, :root:lang(ar) .app__select, :root:lang(iw) .app__select {
-  background-position: left .7em top 50%, 0 0;
-  padding: .6em .8em .5em 1.4em;
+*[dir="rtl"] .app__select,
+:root:lang(ar) .app__select,
+:root:lang(iw) .app__select {
+  background-position: left 0.7em top 50%, 0 0;
+  padding: 0.6em 0.8em 0.5em 1.4em;
 }
-
-
-
-
-
-
 </style>
