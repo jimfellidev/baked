@@ -25,7 +25,7 @@ export default {
 
 <style lang="scss" scoped>
 .topnav {
-  // overflow: hidden;
+  
   transform: translateZ(1000000px);
   z-index: 20;
   position: fixed;
